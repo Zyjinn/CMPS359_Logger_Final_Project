@@ -1,0 +1,42 @@
+package com.example.cmps359_logger_final_project
+
+import androidx.lifecycle.ViewModelProvider
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.home_page_fragment.*
+
+class HomePageFragment : Fragment() {
+
+    companion object {
+        fun newInstance() = HomePageFragment()
+    }
+
+    private lateinit var viewModel: HomePageViewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.home_page_fragment, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(HomePageViewModel::class.java)
+
+//        Goto the game fragment
+        gotoGames.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_homePageFragment_to_gamesFragment)
+        }
+
+//        Goto the timer fragment
+        gotoTimer.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_homePageFragment_to_timerFragment)
+        }
+    }
+
+}
