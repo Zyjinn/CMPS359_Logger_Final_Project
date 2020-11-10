@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Chronometer
 import android.widget.Toast
 import kotlinx.android.synthetic.*
@@ -50,6 +51,12 @@ class TimerFragment : Fragment() {
         val meter = getView()?.findViewById<Chronometer>(R.id.c_meter)
         var isWorking = false
 
+//        Get buttons
+        var startButton = getView()?.findViewById<Button>(R.id.timerStartBtn)
+        var splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
+        var resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
+
+
 //        Start btn listener to start the timer
         timerStartBtn.setOnClickListener{
             if (!isWorking) {
@@ -60,14 +67,16 @@ class TimerFragment : Fragment() {
                 isWorking = false
             }
 
-            timerStartBtn.setText(if (isWorking) R.string.start else R.string.stop)
+//            Changes start button to stop and vice versa when starting
+            timerStartBtn.setText(if (!isWorking) R.string.start else R.string.stop)
 
-//            Toast.makeText(this,
-//                    getString( if (isWorking)
-//                        R.string.working
-//            else
-//                        R.string.stopped),
-//                    Toast.LENGTH_SHORT).show()
+//            ?
+            Toast.makeText(this@TimerFragment, getString(
+                    if (isWorking)
+                        R.string.working
+                    else
+                        R.string.stopped),
+                    Toast.LENGTH_SHORT).show()
         }
     }
 
