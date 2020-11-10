@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".TimerFragment">
 
-    <TextView
-        android:id="@+id/currentTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="344dp"
-        android:text="@string/_0_00_00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/timerStartBtn"
         android:layout_width="86dp"
@@ -42,12 +32,12 @@
         android:id="@+id/timerResetBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="145dp"
         android:text="@string/reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/timerStopBtn"
-        app:layout_constraintTop_toBottomOf="@+id/currentTime" />
+        app:layout_constraintTop_toBottomOf="@+id/timerStartBtn" />
 
     <Button
         android:id="@+id/timerSplitBtn"
@@ -74,4 +64,13 @@
         app:layout_constraintBottom_toTopOf="@+id/timerStartBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/splitsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="58dp"
+        app:layout_constraintBottom_toTopOf="@+id/timerResetBtn"
+        app:layout_constraintStart_toStartOf="@+id/timerResetBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Chronometer
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_timer.*
@@ -33,6 +34,7 @@ class TimerFragment : Fragment() {
     var resetButton: Button? = null
     var stopButton: Button? = null
     var splitButton: Button? = null
+    var splitTimes: TextView? = null
     var stopTime: Long? = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +67,7 @@ class TimerFragment : Fragment() {
         splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
         stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
         resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
+        splitTimes = getView()?.findViewById<Button>(R.id.timerSplitBtn)
 
 //        Start btn listener to start the timer
         timerStartBtn.setOnClickListener{
@@ -93,6 +96,9 @@ class TimerFragment : Fragment() {
             timer?.stop()
             startButton?.visibility = View.VISIBLE
             stopButton?.visibility = View.GONE
+
+        }
+        timerSplitBtn.setOnClickListener{
 
         }
     }
