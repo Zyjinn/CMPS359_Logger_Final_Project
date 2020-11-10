@@ -1,6 +1,7 @@
 package com.example.cmps359_logger_final_project
 
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,35 +49,42 @@ class TimerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 //        Variables for the timer
-        val meter = getView()?.findViewById<Chronometer>(R.id.c_meter)
+        val timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
         var isWorking = false
+        var stopTime = 0;
 
 //        Get buttons
         var startButton = getView()?.findViewById<Button>(R.id.timerStartBtn)
         var splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
+        var stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
         var resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
-
 
 //        Start btn listener to start the timer
         timerStartBtn.setOnClickListener{
-            if (!isWorking) {
-                meter?.start()
-                isWorking = true
-            } else {
-                meter?.stop()
-                isWorking = false
-            }
+            // start the timer
+            timer?(SystemClock.elapsedRealtime() + stopTime)
+            timer?.start()
 
-//            Changes start button to stop and vice versa when starting
-            timerStartBtn.setText(if (!isWorking) R.string.start else R.string.stop)
+//            Hide the start button and reveal the stop button
+            startButton?.visibility = View.GONE
+            stopButton?.visibility = View.GONE
 
-//            ?
-            Toast.makeText(this@TimerFragment, getString(
-                    if (isWorking)
-                        R.string.working
-                    else
-                        R.string.stopped),
-                    Toast.LENGTH_SHORT).show()
+        }
+        timerStopBtn.setOnClickListener{
+            // stop the timer
+            timer?.stop()
+
+//            Hide the stop button and reveal the start button
+            startButton?.visibility = View.VISIBLE
+            stopButton?.visibility = View.GONE
+        }
+
+        timerResetBtn.setOnClickListener{
+            stopTime = 0;
+            timer?.stop()
+            startButton?.visibility = View.GONE
+            stopButton?.visibility = View.GONE
+
         }
     }
 
