@@ -35,7 +35,9 @@ class TimerFragment : Fragment() {
     var stopButton: Button? = null
     var splitButton: Button? = null
     var splitTimes: TextView? = null
-    var stopTime: Long? = 0;
+    var stopTime: Long? = 0
+    var splitTimer: Long? = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +69,8 @@ class TimerFragment : Fragment() {
         splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
         stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
         resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
-        splitTimes = getView()?.findViewById<Button>(R.id.timerSplitBtn)
+        splitTimes = getView()?.findViewById<TextView>(R.id.splitsList)
+        splitTimer = timer?.getBase()
 
 //        Start btn listener to start the timer
         timerStartBtn.setOnClickListener{
@@ -99,6 +102,15 @@ class TimerFragment : Fragment() {
 
         }
         timerSplitBtn.setOnClickListener{
+//            var currentSplit: Long? = splitTimer?.minus(SystemClock.elapsedRealtime())
+            var currentSplit: Long? = SystemClock.elapsedRealtime() - splitTimer!!
+            // display and store the current split
+            currentSplit = currentSplit?.div(1000) // convert to seconds
+            currentSplit = currentSplit?.div(60) // get minutes
+            currentSplit = currentSplit?.div(60) // get hours
+
+            splitTimes?.text = currentSplit.toString()
+            splitTimer = currentSplit
 
         }
     }
