@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TimerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/currentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="344dp"
+        android:text="@string/_0_00_00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/timerStartBtn"
+        android:layout_width="86dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="265dp"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timerStopBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_meter" />
+
+    <Button
+        android:id="@+id/timerStopBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop"
+        app:layout_constraintBaseline_toBaselineOf="@+id/timerResetBtn"
+        app:layout_constraintEnd_toStartOf="@+id/timerResetBtn"
+        app:layout_constraintStart_toEndOf="@+id/timerStartBtn" />
+
+    <Button
+        android:id="@+id/timerResetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="145dp"
+        android:text="@string/reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timerStopBtn"
+        app:layout_constraintTop_toBottomOf="@+id/currentTime" />
+
+    <Button
+        android:id="@+id/timerSplitBtn"
+        android:layout_width="91dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/split"
+        app:layout_constraintBottom_toBottomOf="@+id/timerResetBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timerResetBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Chronometer
+        android:id="@+id/c_meter"
+        android:layout_width="149dp"
+        android:layout_height="205dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginBottom="82dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#092FEC"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/timerStartBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

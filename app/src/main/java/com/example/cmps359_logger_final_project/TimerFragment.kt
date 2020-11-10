@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Chronometer
+import android.widget.Toast
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.fragment_timer.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +39,41 @@ class TimerFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_timer, container, false)
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        Variables for the timer
+        val meter = getView()?.findViewById<Chronometer>(R.id.c_meter)
+        var isWorking = false
+
+//        Start btn listener to start the timer
+        timerStartBtn.setOnClickListener{
+            if (!isWorking) {
+                meter?.start()
+                isWorking = true
+            } else {
+                meter?.stop()
+                isWorking = false
+            }
+
+            timerStartBtn.setText(if (isWorking) R.string.start else R.string.stop)
+
+//            Toast.makeText(this,
+//                    getString( if (isWorking)
+//                        R.string.working
+//            else
+//                        R.string.stopped),
+//                    Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 
     companion object {
