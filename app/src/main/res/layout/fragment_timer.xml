@@ -15,18 +15,8 @@
         android:layout_marginBottom="265dp"
         android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timerStopBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/c_meter" />
-
-    <Button
-        android:id="@+id/timerStopBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stop"
-        app:layout_constraintBaseline_toBaselineOf="@+id/timerResetBtn"
-        app:layout_constraintEnd_toStartOf="@+id/timerResetBtn"
-        app:layout_constraintStart_toEndOf="@+id/timerStartBtn" />
 
     <Button
         android:id="@+id/timerResetBtn"
@@ -36,7 +26,6 @@
         android:layout_marginEnd="145dp"
         android:text="@string/reset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/timerStopBtn"
         app:layout_constraintTop_toBottomOf="@+id/timerStartBtn" />
 
     <Button

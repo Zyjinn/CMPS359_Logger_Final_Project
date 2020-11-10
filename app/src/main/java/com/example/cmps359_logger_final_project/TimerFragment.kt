@@ -37,6 +37,7 @@ class TimerFragment : Fragment() {
     var splitTimes: TextView? = null
     var stopTime: Long? = 0
     var splitTimer: Long? = 0
+    var previousTime: Long? = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,46 +69,41 @@ class TimerFragment : Fragment() {
         super.onStart()
         //        Variables for the timer
         timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
-        var previousTime: Long? = 0
+
 
 
 //        Get buttons
         startButton = getView()?.findViewById<Button>(R.id.timerStartBtn)
         splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
-        stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
         resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
         splitTimes = getView()?.findViewById<TextView>(R.id.splitsList)
         splitTimer = timer?.getBase()
 
+//        Split button is hidden to start
+        splitButton?.visibility = View.GONE
+
 //        Start btn listener to start the timer
         timerStartBtn.setOnClickListener {
+
             // start the timer
             timer?.setBase((SystemClock.elapsedRealtime() + stopTime!!))
             timer?.start()
 
 //            Hide the start button and reveal the stop button
             startButton?.visibility = View.GONE
-            stopButton?.visibility = View.VISIBLE
-
-        }
-        timerStopBtn.setOnClickListener {
+            splitButton?.visibility = View.VISIBLE
             splitTimer = timer?.getBase()
-            // stop the timer
-            stopTime = (timer?.getBase()?.minus(SystemClock.elapsedRealtime()))
-            timer?.stop()
+            previousTime = 0
 
-//            Hide the stop button and reveal the start button
-            startButton?.visibility = View.VISIBLE
-            stopButton?.visibility = View.GONE
         }
+
 
         timerResetBtn.setOnClickListener {
             timer?.setBase(SystemClock.elapsedRealtime())
             stopTime = 0;
             timer?.stop()
             startButton?.visibility = View.VISIBLE
-            stopButton?.visibility = View.GONE
-
+            splitButton?.visibility = View.GONE
         }
         timerSplitBtn.setOnClickListener {
 //            var currentSplit: Long? = splitTimer?.minus(SystemClock.elapsedRealtime())
@@ -116,9 +112,9 @@ class TimerFragment : Fragment() {
             currentSplit = currentSplit?.minus(previousTime!!) // get rid of prev. splits
 
 //            Convert
-            var currentSplitSecs: Long? = currentSplit?.div(1000) // convert to seconds
-            var currentSplitMins: Long? = currentSplitSecs?.div(60) // get minutes
-            var currentSplitHrs: Long? = currentSplitMins?.div(60) // get hours
+            var currentSplitSecs: Long? = currentSplit?.div(1000)?.rem(60) // convert to seconds
+            var currentSplitMins: Long? = currentSplit?.div(1000 * 60)?.rem(60)  // get minutes
+            var currentSplitHrs: Long? = currentSplit?.div(1000 * 60 * 60)?.rem(24) // get hours
 
 //            Print out the current split
             splitTimes?.text = "$currentSplitSecs secs : $currentSplitMins mins : $currentSplitHrs hrs"
