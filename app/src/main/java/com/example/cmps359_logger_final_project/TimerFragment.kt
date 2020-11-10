@@ -68,6 +68,7 @@ class TimerFragment : Fragment() {
         super.onStart()
         //        Variables for the timer
         timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
+        var previousTime: Long? = 0
 
 
 //        Get buttons
@@ -90,6 +91,7 @@ class TimerFragment : Fragment() {
 
         }
         timerStopBtn.setOnClickListener {
+            splitTimer = timer?.getBase()
             // stop the timer
             stopTime = (timer?.getBase()?.minus(SystemClock.elapsedRealtime()))
             timer?.stop()
@@ -111,16 +113,20 @@ class TimerFragment : Fragment() {
 //            var currentSplit: Long? = splitTimer?.minus(SystemClock.elapsedRealtime())
             var currentSplit: Long? = SystemClock.elapsedRealtime() - splitTimer!!
             // display and store the current split
+            currentSplit = currentSplit?.minus(previousTime!!) // get rid of prev. splits
+
+//            Convert
             var currentSplitSecs: Long? = currentSplit?.div(1000) // convert to seconds
             var currentSplitMins: Long? = currentSplitSecs?.div(60) // get minutes
             var currentSplitHrs: Long? = currentSplitMins?.div(60) // get hours
 
-//            Print out the current time
+//            Print out the current split
             splitTimes?.text = "$currentSplitSecs secs : $currentSplitMins mins : $currentSplitHrs hrs"
             println(currentSplit)
 
-//            current time
-//            splitTimer = currentSplit
+//            make it so all previous time is removed, set back to 0?
+//            Get the current time - previous times
+            previousTime = previousTime?.plus(currentSplit!!)
 
         }
     }
