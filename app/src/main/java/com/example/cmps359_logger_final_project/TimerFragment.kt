@@ -167,7 +167,7 @@ class TimerFragment : Fragment() {
             var currentSplitHrs: Long? = currentSplitMins?.div(60) // get hours
             splitTimes?.text = "$currentSplitSecs secs : $currentSplitMins mins : $currentSplitHrs hrs"
             println(currentSplit)
-            splitTimer = currentSplit
+//            splitTimer = currentSplit
 
         }
     }
