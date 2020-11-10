@@ -2,7 +2,6 @@ package com.example.cmps359_logger_final_project
 
 import android.os.Bundle
 import android.os.SystemClock
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,8 @@ import android.widget.Button
 import android.widget.Chronometer
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.*
+import android.widget.Toast.makeText
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_timer.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -48,8 +48,8 @@ class TimerFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_timer, container, false)
@@ -108,8 +108,8 @@ class TimerFragment : Fragment() {
             currentSplit = currentSplit?.div(1000) // convert to seconds
             currentSplit = currentSplit?.div(60) // get minutes
             currentSplit = currentSplit?.div(60) // get hours
-
             splitTimes?.text = currentSplit.toString()
+            println(currentSplit)
             splitTimer = currentSplit
 
         }
@@ -117,7 +117,59 @@ class TimerFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        //        Variables for the timer
+        timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
 
+
+//        Get buttons
+        startButton = getView()?.findViewById<Button>(R.id.timerStartBtn)
+        splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
+        stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
+        resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
+        splitTimes = getView()?.findViewById<TextView>(R.id.splitsList)
+        splitTimer = timer?.getBase()
+
+//        Start btn listener to start the timer
+        timerStartBtn.setOnClickListener {
+            // start the timer
+            timer?.setBase((SystemClock.elapsedRealtime() + stopTime!!))
+            timer?.start()
+
+//            Hide the start button and reveal the stop button
+            startButton?.visibility = View.GONE
+            stopButton?.visibility = View.VISIBLE
+
+        }
+        timerStopBtn.setOnClickListener {
+            // stop the timer
+            stopTime = (timer?.getBase()?.minus(SystemClock.elapsedRealtime()))
+            timer?.stop()
+
+//            Hide the stop button and reveal the start button
+            startButton?.visibility = View.VISIBLE
+            stopButton?.visibility = View.GONE
+        }
+
+        timerResetBtn.setOnClickListener {
+            timer?.setBase(SystemClock.elapsedRealtime())
+            stopTime = 0;
+            timer?.stop()
+            startButton?.visibility = View.VISIBLE
+            stopButton?.visibility = View.GONE
+
+        }
+        timerSplitBtn.setOnClickListener {
+//            var currentSplit: Long? = splitTimer?.minus(SystemClock.elapsedRealtime())
+            var currentSplit: Long? = SystemClock.elapsedRealtime() - splitTimer!!
+            // display and store the current split
+            var currentSplitSecs: Long? = currentSplit?.div(1000) // convert to seconds
+            var currentSplitMins: Long? = currentSplitSecs?.div(60) // get minutes
+            var currentSplitHrs: Long? = currentSplitMins?.div(60) // get hours
+            splitTimes?.text = "$currentSplitSecs secs : $currentSplitMins mins : $currentSplitHrs hrs"
+            println(currentSplit)
+            splitTimer = currentSplit
+
+        }
     }
 
     companion object {
