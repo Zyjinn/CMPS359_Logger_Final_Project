@@ -27,6 +27,14 @@ class TimerFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+//    Variable declarations
+    var timer: Chronometer? = null
+    var startButton: Button? = null
+    var resetButton: Button? = null
+    var stopButton: Button? = null
+    var splitButton: Button? = null
+    var stopTime: Long? = 0;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,29 +57,29 @@ class TimerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 //        Variables for the timer
-        val timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
-        var isWorking = false
-        var stopTime = 0;
+        timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
+
 
 //        Get buttons
-        var startButton = getView()?.findViewById<Button>(R.id.timerStartBtn)
-        var splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
-        var stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
-        var resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
+        startButton = getView()?.findViewById<Button>(R.id.timerStartBtn)
+        splitButton = getView()?.findViewById<Button>(R.id.timerSplitBtn)
+        stopButton = getView()?.findViewById<Button>(R.id.timerStopBtn)
+        resetButton = getView()?.findViewById<Button>(R.id.timerResetBtn)
 
 //        Start btn listener to start the timer
         timerStartBtn.setOnClickListener{
             // start the timer
-            timer?(SystemClock.elapsedRealtime() + stopTime)
+            timer?.setBase((SystemClock.elapsedRealtime() + stopTime!!))
             timer?.start()
 
 //            Hide the start button and reveal the stop button
             startButton?.visibility = View.GONE
-            stopButton?.visibility = View.GONE
+            stopButton?.visibility = View.VISIBLE
 
         }
         timerStopBtn.setOnClickListener{
             // stop the timer
+            stopTime = (timer?.getBase()?.minus(SystemClock.elapsedRealtime()))
             timer?.stop()
 
 //            Hide the stop button and reveal the start button
@@ -80,9 +88,10 @@ class TimerFragment : Fragment() {
         }
 
         timerResetBtn.setOnClickListener{
+            timer?.setBase(SystemClock.elapsedRealtime())
             stopTime = 0;
             timer?.stop()
-            startButton?.visibility = View.GONE
+            startButton?.visibility = View.VISIBLE
             stopButton?.visibility = View.GONE
 
         }
