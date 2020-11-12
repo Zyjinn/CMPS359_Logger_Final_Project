@@ -3,6 +3,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface TimesDao {
@@ -10,7 +11,7 @@ interface TimesDao {
     @Insert
     fun insertTime(time: Times)
 
-    @Query("SELECT username, totalTime FROM times WHERE gameId = :id ORDER BY totalTime")
+    @Query("SELECT * FROM times WHERE gameId = :id ORDER BY totalTime")
     fun getTimes(id: Int): List<Times>
 
     @Query("UPDATE times SET totalTime = :time WHERE gameId = :id AND username = :name")

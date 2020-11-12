@@ -1,13 +1,16 @@
 package com.example.cmps359_logger_final_project
 
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteDatabase.openOrCreateDatabase
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_games.*
-import kotlinx.android.synthetic.main.home_page_fragment.*
+import kotlinx.android.synthetic.main.fragment_undertale.*
+import java.lang.Exception
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,10 +19,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [GamesFragment.newInstance] factory method to
+ * Use the [Undertale.newInstance] factory method to
  * create an instance of this fragment.
  */
-class GamesFragment : Fragment() {
+class Undertale : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,15 +40,21 @@ class GamesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false)
+        return inflater.inflate(R.layout.fragment_undertale, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        toUndertale.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_undertale)
+    override fun onStart() {
+        super.onStart()
+        val timesRepository = TimesRepository(application)
+        storeTime.setOnClickListener {
+            val student = Times(
+                0, studentId.text.toString(), studentName.text.toString())
+            studentRepository.insertStudent(student)
+            studentId.text.clear()
+            studentName.text.clear()
         }
+    }
+
     }
 
     companion object {
@@ -55,12 +64,12 @@ class GamesFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment GamesFragment.
+         * @return A new instance of fragment Undertale.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            GamesFragment().apply {
+            Undertale().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

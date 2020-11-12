@@ -13,7 +13,11 @@
         android:id="@+id/gamesFragment"
         android:name="com.example.cmps359_logger_final_project.GamesFragment"
         android:label="fragment_games"
-        tools:layout="@layout/fragment_games" />
+        tools:layout="@layout/fragment_games" >
+        <action
+            android:id="@+id/action_gamesFragment_to_undertale"
+            app:destination="@id/undertale" />
+    </fragment>
     <fragment
         android:id="@+id/homePageFragment"
         android:name="com.example.cmps359_logger_final_project.HomePageFragment"
@@ -26,4 +30,9 @@
             android:id="@+id/action_homePageFragment_to_timerFragment"
             app:destination="@id/timerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/undertale"
+        android:name="com.example.cmps359_logger_final_project.Undertale"
+        android:label="fragment_undertale"
+        tools:layout="@layout/fragment_undertale" />
 </navigation>

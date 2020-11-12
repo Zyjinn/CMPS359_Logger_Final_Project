@@ -20,4 +20,5 @@
     <string name="reset">Reset</string>
     <string name="working" />
     <string name="stopped" />
+    <string name="undertale">Undertale</string>
 </resources>
