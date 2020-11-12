@@ -1,12 +1,13 @@
 package com.example.cmps359_logger_final_project
 import android.app.Application
 import android.os.AsyncTask
-import android.provider.ContactsContract
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 class TimesRepository(application: Application) {
 
     private var timesDao: TimesDao?
+
     init {
         val db: TimesRoomDatabase? = TimesRoomDatabase.getDatabase(application)
         timesDao = db?.timesDao()

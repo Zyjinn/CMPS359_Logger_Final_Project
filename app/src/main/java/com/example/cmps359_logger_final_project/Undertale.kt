@@ -1,15 +1,14 @@
 package com.example.cmps359_logger_final_project
 
-import android.content.Context
-import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteDatabase.openOrCreateDatabase
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_undertale.*
-import java.lang.Exception
+import com.example.cmps359_logger_final_project.TimesRepository
+import kotlinx.android.synthetic.main.activity_main.*
+import android.app.Application
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +32,12 @@ class Undertale : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        val timesRepository = TimesRepository(application)
+        storeTime.setOnClickListener {
+            val times = Times(
+                0, 0, "test", 11111111)
+            timesRepository.insertTime(times)
+        }
     }
 
     override fun onCreateView(
@@ -45,15 +50,6 @@ class Undertale : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val timesRepository = TimesRepository(application)
-        storeTime.setOnClickListener {
-            val student = Times(
-                0, studentId.text.toString(), studentName.text.toString())
-            studentRepository.insertStudent(student)
-            studentId.text.clear()
-            studentName.text.clear()
-        }
-    }
 
     }
 
