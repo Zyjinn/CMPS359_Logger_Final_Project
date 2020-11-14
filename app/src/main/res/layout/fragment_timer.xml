@@ -9,71 +9,122 @@
 
     <Button
         android:id="@+id/timerStartBtn"
-        android:layout_width="72dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="15dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="76dp"
         android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@+id/storeTime"
-        app:layout_constraintEnd_toEndOf="@+id/storeTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/c_meter" />
+        app:layout_constraintTop_toBottomOf="@+id/splitsList" />
 
     <Button
         android:id="@+id/timerResetBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="276dp"
         android:text="@string/reset"
-        app:layout_constraintBottom_toBottomOf="@+id/storeTime"
-        app:layout_constraintEnd_toStartOf="@+id/timerSplitBtn"
-        app:layout_constraintStart_toEndOf="@+id/storeTime" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/timerStopBtn" />
 
     <Button
         android:id="@+id/timerSplitBtn"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="276dp"
         android:text="@string/split"
-        app:layout_constraintBaseline_toBaselineOf="@+id/timerResetBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/timerResetBtn" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timerStopBtn"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Chronometer
         android:id="@+id/c_meter"
-        android:layout_width="149dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="349dp"
+        android:layout_height="87dp"
         android:layout_marginTop="77dp"
-        android:layout_marginBottom="76dp"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#092FEC"
+        android:textColor="#E91E63"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/timerStartBtn"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/splitsList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toTopOf="@+id/timerResetBtn"
-        app:layout_constraintStart_toStartOf="@+id/timerResetBtn" />
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_meter" />
 
     <Button
-        android:id="@+id/storeTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="258dp"
-        android:text="@string/store_time"
+        android:id="@+id/storeTimeBtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="276dp"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/timerResetBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/timerStopBtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="276dp"
+        android:text="Stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/timerSplitBtn" />
+
+    <TextView
+        android:id="@+id/totalTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="172dp"
+        android:text="Total Time"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerStartBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/usernameInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/usernameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:ems="10"
+        android:hint="Enter Username"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
