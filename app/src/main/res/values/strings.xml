@@ -27,5 +27,6 @@
     <string name="ocarina_of_time">Ocarina of Time</string>
     <string name="super_mario_64">Super Mario 64</string>
     <string name="spongebob_squarepants">Spongebob Squarepants</string>
+    <string name="spongebob">Spongebob</string>
     <string name="leaderboard">LEADERBOARD</string>
 </resources>
