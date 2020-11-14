@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#070707"
     tools:context=".Undertale">
 
     <TableLayout
@@ -18,18 +19,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </TableLayout>
 
     <TextView
@@ -38,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="37dp"
         android:text="@string/undertale_leaderboard"
+        android:textColor="#9C27B0"
         app:layout_constraintBottom_toTopOf="@+id/splitsTable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -5,14 +5,16 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F44336"
+    android:backgroundTint="#FFFFFF"
     tools:context=".HomePageFragment">
 
     <Button
         android:id="@+id/gotoTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginBottom="153dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="288dp"
         android:text="@string/go_to_timer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -21,8 +23,23 @@
         android:id="@+id/gotoGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="288dp"
         android:text="@string/go_to_games"
-        app:layout_constraintBaseline_toBaselineOf="@+id/gotoTimer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="295dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="66dp"
+        android:text="LOGGERS"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
