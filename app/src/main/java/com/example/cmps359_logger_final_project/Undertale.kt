@@ -85,7 +85,7 @@ class Undertale : Fragment() {
 
 
 
-//            populate the table?
+//            populate the table first time
             if (curse.count > 0) {
                 do {
                     var time = curse.getLong(cindextime)
@@ -117,13 +117,13 @@ class Undertale : Fragment() {
                     tableLayout?.addView(tbrow)
                     rank += 1
 
+//                    Continue to do so till we run out of data
                 } while (curse.moveToNext())
-//                listTimes!!.text = message
             }
+//            Catch and print exceptions to the console
         } catch (e: Exception) {
-//            listTimes!!.text = e.toString()
+            System.out.println(e.message)
         }
-        // }
 
     }
 

@@ -22,4 +22,5 @@
     <string name="stopped" />
     <string name="undertale">Undertale</string>
     <string name="store_time">Store Time</string>
+    <string name="undertale_leaderboard">Undertale Leaderboard</string>
 </resources>
