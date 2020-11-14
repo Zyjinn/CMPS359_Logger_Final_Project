@@ -106,7 +106,7 @@ class Super_Mario_64 : Fragment() {
                     tbrow.addView(t2v)
 
                     val t3v = TextView(context)
-                    t3v.text = "Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]"
+                    t3v.text = "Time: [$timeHrs.$timeMins.$timeSecs]"
                     t3v.setTextColor(Color.WHITE)
                     t3v.gravity = Gravity.CENTER
                     tbrow.addView(t3v)
