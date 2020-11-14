@@ -9,6 +9,11 @@ import kotlinx.android.synthetic.main.fragment_undertale.*
 import com.example.cmps359_logger_final_project.TimesRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import android.app.Application
+import android.graphics.Color
+import android.view.Gravity
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -107,7 +112,7 @@ class Undertale : Fragment() {
                     tbrow.addView(t2v)
 
                     val t3v = TextView(context)
-                    t3v.text = "Time: [$timeHrs.$timeMins.$timeSecs]"
+                    t3v.text = "[$timeHrs.$timeMins.$timeSecs]"
                     t3v.setTextColor(Color.WHITE)
                     t3v.gravity = Gravity.CENTER
                     tbrow.addView(t3v)
