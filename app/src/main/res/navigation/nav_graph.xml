@@ -17,6 +17,18 @@
         <action
             android:id="@+id/action_gamesFragment_to_undertale"
             app:destination="@id/undertale" />
+        <action
+            android:id="@+id/action_gamesFragment_to_sonic_Adventure_2"
+            app:destination="@id/sonic_Adventure_2" />
+        <action
+            android:id="@+id/action_gamesFragment_to_ocarina_of_Time"
+            app:destination="@id/ocarina_of_Time" />
+        <action
+            android:id="@+id/action_gamesFragment_to_super_Mario_64"
+            app:destination="@id/super_Mario_64" />
+        <action
+            android:id="@+id/action_gamesFragment_to_spongebob_Squarepants"
+            app:destination="@id/spongebob_Squarepants" />
     </fragment>
     <fragment
         android:id="@+id/homePageFragment"
@@ -35,4 +47,24 @@
         android:name="com.example.cmps359_logger_final_project.Undertale"
         android:label="fragment_undertale"
         tools:layout="@layout/fragment_undertale" />
+    <fragment
+        android:id="@+id/sonic_Adventure_2"
+        android:name="com.example.cmps359_logger_final_project.Sonic_Adventure_2"
+        android:label="fragment_sonic__adventure_2"
+        tools:layout="@layout/fragment_sonic__adventure_2" />
+    <fragment
+        android:id="@+id/ocarina_of_Time"
+        android:name="com.example.cmps359_logger_final_project.Ocarina_of_Time"
+        android:label="fragment_ocarina_of__time"
+        tools:layout="@layout/fragment_ocarina_of__time" />
+    <fragment
+        android:id="@+id/super_Mario_64"
+        android:name="com.example.cmps359_logger_final_project.Super_Mario_64"
+        android:label="fragment_super__mario_64"
+        tools:layout="@layout/fragment_super__mario_64" />
+    <fragment
+        android:id="@+id/spongebob_Squarepants"
+        android:name="com.example.cmps359_logger_final_project.Spongebob_Squarepants"
+        android:label="fragment_spongebob__squarepants"
+        tools:layout="@layout/fragment_spongebob__squarepants" />
 </navigation>

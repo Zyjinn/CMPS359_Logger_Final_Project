@@ -11,8 +11,8 @@
         android:id="@+id/gotoTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginBottom="153dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="288dp"
         android:text="@string/go_to_timer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -21,8 +21,46 @@
         android:id="@+id/gotoGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="288dp"
         android:text="@string/go_to_games"
-        app:layout_constraintBaseline_toBaselineOf="@+id/gotoTimer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="472dp"
+        android:layout_height="726dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/poggers_emote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="295dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="66dp"
+        android:text="LOGGERS"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#F8F8F8"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="(a speedrun app)"
+        android:textColor="#FFFDFD"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

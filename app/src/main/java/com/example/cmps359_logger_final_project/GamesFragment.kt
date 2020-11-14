@@ -43,8 +43,29 @@ class GamesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+//        Goto undertale game page
+
         toUndertale.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_undertale)
+        }
+
+//        Goto sonic adventure 2 game page
+        toSonicAdventure.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_sonic_Adventure_2)
+        }
+
+//        Goto ocarina of time game page
+        toOcarinaOfTime.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_ocarina_of_Time)
+        }
+
+//        Goto Mario 64 game page
+        toSuperMario64.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_super_Mario_64)
+        }
+
+        toSpongebob.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_spongebob_Squarepants)
         }
     }
 

@@ -22,4 +22,12 @@
     <string name="stopped" />
     <string name="undertale">Undertale</string>
     <string name="store_time">Store Time</string>
+    <string name="undertale_leaderboard">Undertale Leaderboard</string>
+    <string name="sonic_adventure_2">Sonic Adventure 2</string>
+    <string name="ocarina_of_time">Ocarina of Time</string>
+    <string name="super_mario_64">Super Mario 64</string>
+    <string name="spongebob_squarepants">Spongebob Squarepants</string>
+    <string name="spongebob">Spongebob</string>
+    <string name="Loggers">Loggers</string>
+    <string name="leaderboard">LEADERBOARD</string>
 </resources>

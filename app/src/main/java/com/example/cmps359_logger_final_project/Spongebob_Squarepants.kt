@@ -1,15 +1,16 @@
 package com.example.cmps359_logger_final_project
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_undertale.*
-import com.example.cmps359_logger_final_project.TimesRepository
-import kotlinx.android.synthetic.main.activity_main.*
-import android.app.Application
-
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +19,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Undertale.newInstance] factory method to
+ * Use the [Spongebob_Squarepants.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Undertale : Fragment() {
+class Spongebob_Squarepants : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,26 +40,26 @@ class Undertale : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_undertale, container, false)
+        return inflater.inflate(R.layout.fragment_spongebob__squarepants, container, false)
     }
 
+    @SuppressLint("SetTextI18n", "Recycle")
     override fun onStart() {
         super.onStart()
 
 //        Get the splits table var
-        var tableLayout = view?.findViewById<TableLayout>(R.id.splitsTable)
+        val tableLayout = view?.findViewById<TableLayout>(R.id.splitsTable)
 
 //        Query the DB to get user times
         try {
             var rank = 1
             val curse = db!!.rawQuery(
-                "SELECT * FROM times WHERE gameId = 0 ORDER BY totalTime"
+                "SELECT * FROM times WHERE gameId = 4 ORDER BY totalTime"
                 , null
             )
             val cindexname = curse.getColumnIndex("username")
             val cindextime = curse.getColumnIndex("totalTime")
             curse.moveToFirst()
-            var message = "No match!"
 
 
 //            Create the table header rows
@@ -86,10 +87,10 @@ class Undertale : Fragment() {
 //            populate the table first time
             if (curse.count > 0) {
                 do {
-                    var time = curse.getLong(cindextime)
-                    var timeSecs = time.div(1000).rem(60) // convert to seconds
-                    var timeMins = time.div(1000 * 60).rem(60)  // get minutes
-                    var timeHrs = time.div(1000 * 60 * 60).rem(24) // get hours
+                    val time = curse.getLong(cindextime)
+                    val timeSecs = time.div(1000).rem(60) // convert to seconds
+                    val timeMins = time.div(1000 * 60).rem(60)  // get minutes
+                    val timeHrs = time.div(1000 * 60 * 60).rem(24) // get hours
 
 
 
@@ -122,7 +123,6 @@ class Undertale : Fragment() {
         } catch (e: Exception) {
             System.out.println(e.message)
         }
-
     }
 
     companion object {
@@ -132,12 +132,12 @@ class Undertale : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Undertale.
+         * @return A new instance of fragment Spongebob_Squarepants.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Undertale().apply {
+            Spongebob_Squarepants().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

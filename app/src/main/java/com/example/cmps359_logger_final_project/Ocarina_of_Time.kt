@@ -1,15 +1,15 @@
 package com.example.cmps359_logger_final_project
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_undertale.*
-import com.example.cmps359_logger_final_project.TimesRepository
-import kotlinx.android.synthetic.main.activity_main.*
-import android.app.Application
-
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Undertale.newInstance] factory method to
+ * Use the [Ocarina_of_Time.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Undertale : Fragment() {
+class Ocarina_of_Time : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,7 +39,7 @@ class Undertale : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_undertale, container, false)
+        return inflater.inflate(R.layout.fragment_ocarina_of__time, container, false)
     }
 
     override fun onStart() {
@@ -52,7 +52,7 @@ class Undertale : Fragment() {
         try {
             var rank = 1
             val curse = db!!.rawQuery(
-                "SELECT * FROM times WHERE gameId = 0 ORDER BY totalTime"
+                "SELECT * FROM times WHERE gameId = 2 ORDER BY totalTime"
                 , null
             )
             val cindexname = curse.getColumnIndex("username")
@@ -65,18 +65,18 @@ class Undertale : Fragment() {
             val tbrow0 = TableRow(context)
             val tv0 = TextView(context)
             tv0.text = " Rank "
+            tv0.setTextColor(Color.BLACK)
             tv0.gravity = Gravity.CENTER
-            tv0.setTextColor(Color.WHITE)
             tbrow0.addView(tv0)
             val tv1 = TextView(context)
             tv1.text = " User "
+            tv1.setTextColor(Color.BLACK)
             tv1.gravity = Gravity.CENTER
-            tv1.setTextColor(Color.WHITE)
             tbrow0.addView(tv1)
             val tv2 = TextView(context)
             tv2.text = " Time "
+            tv2.setTextColor(Color.BLACK)
             tv2.gravity = Gravity.CENTER
-            tv2.setTextColor(Color.WHITE)
             tbrow0.addView(tv2)
             tableLayout?.addView(tbrow0)
 
@@ -96,19 +96,19 @@ class Undertale : Fragment() {
                     val tbrow = TableRow(context)
                     val t1v = TextView(context)
                     t1v.text = rank.toString()
-                    t1v.setTextColor(Color.WHITE)
+                    t1v.setTextColor(Color.BLACK)
                     t1v.gravity = Gravity.CENTER
                     tbrow.addView(t1v)
 
                     val t2v = TextView(context)
                     t2v.text = curse.getString(cindexname)
-                    t2v.setTextColor(Color.WHITE)
+                    t2v.setTextColor(Color.BLACK)
                     t2v.gravity = Gravity.CENTER
                     tbrow.addView(t2v)
 
                     val t3v = TextView(context)
                     t3v.text = "Time: [$timeHrs.$timeMins.$timeSecs]"
-                    t3v.setTextColor(Color.WHITE)
+                    t3v.setTextColor(Color.BLACK)
                     t3v.gravity = Gravity.CENTER
                     tbrow.addView(t3v)
 
@@ -132,12 +132,12 @@ class Undertale : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Undertale.
+         * @return A new instance of fragment Ocarina_of_Time.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Undertale().apply {
+            Ocarina_of_Time().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
