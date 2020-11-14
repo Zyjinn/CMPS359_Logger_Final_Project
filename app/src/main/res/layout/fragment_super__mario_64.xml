@@ -19,7 +19,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:ignore="UselessLeaf" />
     </TableLayout>
 
     <TextView
@@ -27,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
-        android:text="LEADERBOARD"
+        android:text="@string/leaderboard"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -45,7 +46,8 @@
         android:src="@drawable/mario_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -54,5 +56,6 @@
         android:layout_marginBottom="18dp"
         android:src="@drawable/mario"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>
