@@ -11,7 +11,7 @@
         android:id="@+id/timerStartBtn"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="24dp"
         android:text="@string/start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -45,8 +45,8 @@
 
     <Chronometer
         android:id="@+id/c_meter"
-        android:layout_width="349dp"
-        android:layout_height="87dp"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
         android:layout_marginTop="77dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -59,9 +59,11 @@
 
     <TextView
         android:id="@+id/splitsList"
-        android:layout_width="310dp"
-        android:layout_height="50dp"
+        android:layout_width="317dp"
+        android:layout_height="157dp"
         android:layout_marginTop="18dp"
+        android:textAlignment="center"
+        android:textColor="#25BAB5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/c_meter" />

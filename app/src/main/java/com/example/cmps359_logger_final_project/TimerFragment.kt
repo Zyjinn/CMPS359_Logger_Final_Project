@@ -40,7 +40,8 @@ class TimerFragment : Fragment() {
     var gameName: String? = null
     var username: String? = null
     var gameID: Int? = null
-    var timeSplitsList: Array<Text>? = null
+    var timeSplitList: MutableList<String> = ArrayList()
+    var splitNum = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,6 +119,8 @@ class TimerFragment : Fragment() {
             timerStopBtn.visibility = View.VISIBLE
             splitTimer = timer?.getBase()
             previousTime = 0
+            timeSplitList.clear()
+            splitNum = 1
 
         }
 
@@ -134,6 +137,7 @@ class TimerFragment : Fragment() {
             spinner.visibility = View.GONE
             usernameInput.visibility = View.GONE
             usernameInput.text.clear()
+            splitTimes?.text = ""
 
         }
 
@@ -165,9 +169,17 @@ class TimerFragment : Fragment() {
             var currentSplitHrs: Long? = currentSplit?.div(1000 * 60 * 60)?.rem(24) // get hours
 
 //            Print out the current split
-            splitTimes?.text =
-                "Previous Split: $currentSplitSecs secs : $currentSplitMins mins : $currentSplitHrs hrs"
-            println(currentSplit)
+            timeSplitList.add("Split $splitNum : $currentSplitSecs secs : $currentSplitMins mins " +
+                    ": $currentSplitHrs hrs\n")
+            splitNum += 1
+            if (timeSplitList.size > 4)
+                timeSplitList.removeAt(0)
+            var splitOutput: String
+            splitOutput = timeSplitList.toString().replace("," , "")
+            splitOutput = splitOutput.replace("[" , "")
+            splitOutput = splitOutput.replace("]" , "")
+            splitTimes?.text = splitOutput
+
 
 //            make it so all previous time is removed, set back to 0?
 //            Get the current time - previous times

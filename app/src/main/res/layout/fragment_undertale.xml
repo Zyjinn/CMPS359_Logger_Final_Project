@@ -11,19 +11,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
+        android:layout_marginBottom="49dp"
         android:text="Show Times"
+        app:layout_constraintBottom_toTopOf="@+id/listTimes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/listTimes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="343dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="230dp"
         android:text="List Times"
-        app:layout_constraintStart_toStartOf="@+id/listUndertale"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listUndertale" />
 
 

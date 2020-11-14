@@ -45,10 +45,11 @@ class Undertale : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        listUndertale.setOnClickListener {
+        //listUndertale.setOnClickListener {
             try {
                 var rank = 1
-                val curse = db!!.rawQuery("SELECT * FROM times ORDER BY totalTime", null)
+                val curse = db!!.rawQuery("SELECT * FROM times WHERE gameId = 0 ORDER BY totalTime"
+                    , null)
                 val cindexname = curse.getColumnIndex("username")
                 val cindextime = curse.getColumnIndex("totalTime")
                 curse.moveToFirst()
@@ -60,7 +61,7 @@ class Undertale : Fragment() {
                         var timeSecs = time.div(1000).rem(60) // convert to seconds
                         var timeMins = time.div(1000 * 60).rem(60)  // get minutes
                         var timeHrs= time.div(1000 * 60 * 60).rem(24) // get hours
-                        message = message + "$cindextime (" + curse.getString(cindexname) +
+                        message = message + "$rank (" + curse.getString(cindexname) +
                                 "), Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]\n"
                         rank +=1
                     } while (curse.moveToNext())
@@ -69,7 +70,7 @@ class Undertale : Fragment() {
             } catch (e: Exception) {
                 listTimes!!.text = e.toString()
             }
-        }
+       // }
 
     }
 
