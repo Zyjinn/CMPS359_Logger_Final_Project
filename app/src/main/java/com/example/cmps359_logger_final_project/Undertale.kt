@@ -47,7 +47,7 @@ class Undertale : Fragment() {
 
         storeTime.setOnClickListener {
             val times = Times(
-                0, 0, "test", 11111111)
+                0, 0, "test", 1620000)
             timesRepository?.insertTime(times)
         }
 
@@ -56,16 +56,17 @@ class Undertale : Fragment() {
                 var rank = 1
                 val curse = db!!.rawQuery("SELECT * FROM times ORDER BY totalTime", null)
                 val cindexname = curse.getColumnIndex("username")
-                val cindextime = curse.getColumnIndex("totalTime").toLong()
-                var timeSecs = cindextime.div(1000).rem(60) // convert to seconds
-                var timeMins = cindextime.div(1000 * 60).rem(60)  // get minutes
-                var timeHrs= cindextime.div(1000 * 60 * 60).rem(24) // get hours
+                val cindextime = curse.getColumnIndex("totalTime")
                 curse.moveToFirst()
                 var message = "No match!"
                 if (curse.count > 0) {
                     message = ""
                     do {
-                        message = message + "$rank (" + curse.getString(cindexname) +
+                        var time = curse.getLong(cindextime)
+                        var timeSecs = time.div(1000).rem(60) // convert to seconds
+                        var timeMins = time.div(1000 * 60).rem(60)  // get minutes
+                        var timeHrs= time.div(1000 * 60 * 60).rem(24) // get hours
+                        message = message + "$cindextime (" + curse.getString(cindexname) +
                                 "), Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]\n"
                         rank +=1
                     } while (curse.moveToNext())
