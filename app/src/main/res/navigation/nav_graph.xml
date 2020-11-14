@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_gamesFragment_to_undertale"
             app:destination="@id/undertale" />
+        <action
+            android:id="@+id/action_gamesFragment_to_sonic_Adventure_2"
+            app:destination="@id/sonic_Adventure_2" />
     </fragment>
     <fragment
         android:id="@+id/homePageFragment"
@@ -35,4 +38,9 @@
         android:name="com.example.cmps359_logger_final_project.Undertale"
         android:label="fragment_undertale"
         tools:layout="@layout/fragment_undertale" />
+    <fragment
+        android:id="@+id/sonic_Adventure_2"
+        android:name="com.example.cmps359_logger_final_project.Sonic_Adventure_2"
+        android:label="fragment_sonic__adventure_2"
+        tools:layout="@layout/fragment_sonic__adventure_2" />
 </navigation>
