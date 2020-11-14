@@ -64,14 +64,17 @@ class Super_Mario_64 : Fragment() {
             val tbrow0 = TableRow(context)
             val tv0 = TextView(context)
             tv0.text = " Rank "
+            tv0.gravity = Gravity.CENTER
             tv0.setTextColor(Color.WHITE)
             tbrow0.addView(tv0)
             val tv1 = TextView(context)
             tv1.text = " User "
+            tv1.gravity = Gravity.CENTER
             tv1.setTextColor(Color.WHITE)
             tbrow0.addView(tv1)
             val tv2 = TextView(context)
             tv2.text = " Time "
+            tv2.gravity = Gravity.CENTER
             tv2.setTextColor(Color.WHITE)
             tbrow0.addView(tv2)
             tableLayout?.addView(tbrow0)
@@ -103,7 +106,7 @@ class Super_Mario_64 : Fragment() {
                     tbrow.addView(t2v)
 
                     val t3v = TextView(context)
-                    t3v.text = "Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]"
+                    t3v.text = "Time: [$timeHrs.$timeMins.$timeSecs]"
                     t3v.setTextColor(Color.WHITE)
                     t3v.gravity = Gravity.CENTER
                     tbrow.addView(t3v)
