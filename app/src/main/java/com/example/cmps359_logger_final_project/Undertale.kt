@@ -9,6 +9,11 @@ import kotlinx.android.synthetic.main.fragment_undertale.*
 import com.example.cmps359_logger_final_project.TimesRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import android.app.Application
+import android.graphics.Color
+import android.view.Gravity
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,31 +50,80 @@ class Undertale : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        listUndertale.setOnClickListener {
-            try {
-                var rank = 1
-                val curse = db!!.rawQuery("SELECT * FROM times ORDER BY totalTime", null)
-                val cindexname = curse.getColumnIndex("username")
-                val cindextime = curse.getColumnIndex("totalTime")
-                curse.moveToFirst()
-                var message = "No match!"
-                if (curse.count > 0) {
-                    message = ""
-                    do {
-                        var time = curse.getLong(cindextime)
-                        var timeSecs = time.div(1000).rem(60) // convert to seconds
-                        var timeMins = time.div(1000 * 60).rem(60)  // get minutes
-                        var timeHrs= time.div(1000 * 60 * 60).rem(24) // get hours
-                        message = message + "$cindextime (" + curse.getString(cindexname) +
-                                "), Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]\n"
-                        rank +=1
-                    } while (curse.moveToNext())
-                    listTimes!!.text = message
-                }
-            } catch (e: Exception) {
-                listTimes!!.text = e.toString()
+//        Get the splits table var
+        var tableLayout = view?.findViewById<TableLayout>(R.id.splitsTable)
+
+//        Query the DB to get user times
+        try {
+            var rank = 1
+            val curse = db!!.rawQuery(
+                "SELECT * FROM times WHERE gameId = 0 ORDER BY totalTime"
+                , null
+            )
+            val cindexname = curse.getColumnIndex("username")
+            val cindextime = curse.getColumnIndex("totalTime")
+            curse.moveToFirst()
+            var message = "No match!"
+
+
+//            Create the table header rows
+            val tbrow0 = TableRow(context)
+            val tv0 = TextView(context)
+            tv0.text = " Rank "
+            tv0.setTextColor(Color.WHITE)
+            tbrow0.addView(tv0)
+            val tv1 = TextView(context)
+            tv1.text = " User "
+            tv1.setTextColor(Color.WHITE)
+            tbrow0.addView(tv1)
+            val tv2 = TextView(context)
+            tv2.text = " Time "
+            tv2.setTextColor(Color.WHITE)
+            tbrow0.addView(tv2)
+            tableLayout?.addView(tbrow0)
+
+
+
+
+//            populate the table?
+            if (curse.count > 0) {
+                do {
+                    var time = curse.getLong(cindextime)
+                    var timeSecs = time.div(1000).rem(60) // convert to seconds
+                    var timeMins = time.div(1000 * 60).rem(60)  // get minutes
+                    var timeHrs = time.div(1000 * 60 * 60).rem(24) // get hours
+
+
+
+                    val tbrow = TableRow(context)
+                    val t1v = TextView(context)
+                    t1v.text = rank.toString()
+                    t1v.setTextColor(Color.WHITE)
+                    t1v.gravity = Gravity.CENTER
+                    tbrow.addView(t1v)
+
+                    val t2v = TextView(context)
+                    t2v.text = curse.getString(cindexname)
+                    t2v.setTextColor(Color.WHITE)
+                    t2v.gravity = Gravity.CENTER
+                    tbrow.addView(t2v)
+
+                    val t3v = TextView(context)
+                    t3v.text = "Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]"
+                    t3v.setTextColor(Color.WHITE)
+                    t3v.gravity = Gravity.CENTER
+                    tbrow.addView(t3v)
+
+                    tableLayout?.addView(tbrow)
+                    rank += 1
+
+                } while (curse.moveToNext())
+//                listTimes!!.text = message
             }
+        } catch (e: Exception) {
+//            listTimes!!.text = e.toString()
         }
+        // }
 
     }
 
