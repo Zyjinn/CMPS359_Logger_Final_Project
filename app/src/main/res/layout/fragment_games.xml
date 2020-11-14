@@ -8,6 +8,26 @@
     tools:context=".GamesFragment">
 
     <Button
+        android:id="@+id/toSuperMario64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:text="@string/super_mario_64"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toUndertale" />
+
+    <Button
+        android:id="@+id/toOcarinaOfTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="@string/ocarina_of_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toUndertale" />
+
+    <Button
         android:id="@+id/toUndertale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,4 +46,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toUndertale" />
+
+    <Button
+        android:id="@+id/toSpongebob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:text="@string/spongebob_squarepants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toSuperMario64" />
 </androidx.constraintlayout.widget.ConstraintLayout>

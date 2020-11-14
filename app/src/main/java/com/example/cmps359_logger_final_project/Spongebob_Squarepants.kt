@@ -5,9 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_games.*
-import kotlinx.android.synthetic.main.home_page_fragment.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [GamesFragment.newInstance] factory method to
+ * Use the [Spongebob_Squarepants.newInstance] factory method to
  * create an instance of this fragment.
  */
-class GamesFragment : Fragment() {
+class Spongebob_Squarepants : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,36 +34,7 @@ class GamesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-//        Goto undertale game page
-
-        toUndertale.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_undertale)
-        }
-
-//        Goto sonic adventure 2 game page
-        toSonicAdventure.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_sonic_Adventure_2)
-        }
-
-//        Goto ocarina of time game page
-        toOcarinaOfTime.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_ocarina_of_Time)
-        }
-
-//        Goto Mario 64 game page
-        toSuperMario64.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_super_Mario_64)
-        }
-
-        toSpongebob.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_gamesFragment_to_spongebob_Squarepants)
-        }
+        return inflater.inflate(R.layout.fragment_spongebob__squarepants, container, false)
     }
 
     companion object {
@@ -76,12 +44,12 @@ class GamesFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment GamesFragment.
+         * @return A new instance of fragment Spongebob_Squarepants.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            GamesFragment().apply {
+            Spongebob_Squarepants().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

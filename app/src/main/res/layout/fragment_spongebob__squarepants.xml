@@ -2,18 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
+    android:id="@+id/frameLayout7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sonic_Adventure_2">
+    tools:context=".Spongebob_Squarepants">
 
     <TextView
-        android:id="@+id/Sonic"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="137dp"
-        android:text="Sonic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Spongebob"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="214dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
