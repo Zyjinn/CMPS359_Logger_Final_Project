@@ -45,12 +45,6 @@ class Undertale : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        storeTime.setOnClickListener {
-            val times = Times(
-                0, 0, "test", 1620000)
-            timesRepository?.insertTime(times)
-        }
-
         listUndertale.setOnClickListener {
             try {
                 var rank = 1

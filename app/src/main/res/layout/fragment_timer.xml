@@ -9,12 +9,14 @@
 
     <Button
         android:id="@+id/timerStartBtn"
-        android:layout_width="86dp"
-        android:layout_height="52dp"
+        android:layout_width="72dp"
+        android:layout_height="35dp"
         android:layout_marginStart="14dp"
-        android:layout_marginBottom="265dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/start"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/storeTime"
+        app:layout_constraintEnd_toEndOf="@+id/storeTime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/c_meter" />
 
@@ -22,31 +24,30 @@
         android:id="@+id/timerResetBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="145dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="9dp"
         android:text="@string/reset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerStartBtn" />
+        app:layout_constraintBottom_toBottomOf="@+id/storeTime"
+        app:layout_constraintEnd_toStartOf="@+id/timerSplitBtn"
+        app:layout_constraintStart_toEndOf="@+id/storeTime" />
 
     <Button
         android:id="@+id/timerSplitBtn"
-        android:layout_width="91dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="44dp"
         android:text="@string/split"
-        app:layout_constraintBottom_toBottomOf="@+id/timerResetBtn"
+        app:layout_constraintBaseline_toBaselineOf="@+id/timerResetBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/timerResetBtn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/timerResetBtn" />
 
     <Chronometer
         android:id="@+id/c_meter"
         android:layout_width="149dp"
-        android:layout_height="205dp"
-        android:layout_margin="20dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginBottom="82dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="76dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#092FEC"
         android:textSize="36sp"
@@ -62,4 +63,17 @@
         android:layout_marginBottom="58dp"
         app:layout_constraintBottom_toTopOf="@+id/timerResetBtn"
         app:layout_constraintStart_toStartOf="@+id/timerResetBtn" />
+
+    <Button
+        android:id="@+id/storeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="258dp"
+        android:text="@string/store_time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timerResetBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerStartBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

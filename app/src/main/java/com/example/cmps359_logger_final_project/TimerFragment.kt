@@ -12,6 +12,7 @@ import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_timer.*
+import kotlinx.android.synthetic.main.fragment_undertale.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +70,13 @@ class TimerFragment : Fragment() {
         super.onStart()
         //        Variables for the timer
         timer = getView()?.findViewById<Chronometer>(R.id.c_meter)
+
+//        Store times button listener
+        storeTime.setOnClickListener {
+            val times = Times(
+                0, 0, "test", 1620000)
+            timesRepository?.insertTime(times)
+        }
 
 
 
