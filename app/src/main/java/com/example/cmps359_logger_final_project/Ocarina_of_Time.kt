@@ -65,15 +65,18 @@ class Ocarina_of_Time : Fragment() {
             val tbrow0 = TableRow(context)
             val tv0 = TextView(context)
             tv0.text = " Rank "
-            tv0.setTextColor(Color.WHITE)
+            tv0.setTextColor(Color.BLACK)
+            tv0.gravity = Gravity.CENTER
             tbrow0.addView(tv0)
             val tv1 = TextView(context)
             tv1.text = " User "
-            tv1.setTextColor(Color.WHITE)
+            tv1.setTextColor(Color.BLACK)
+            tv1.gravity = Gravity.CENTER
             tbrow0.addView(tv1)
             val tv2 = TextView(context)
             tv2.text = " Time "
-            tv2.setTextColor(Color.WHITE)
+            tv2.setTextColor(Color.BLACK)
+            tv2.gravity = Gravity.CENTER
             tbrow0.addView(tv2)
             tableLayout?.addView(tbrow0)
 
@@ -93,19 +96,19 @@ class Ocarina_of_Time : Fragment() {
                     val tbrow = TableRow(context)
                     val t1v = TextView(context)
                     t1v.text = rank.toString()
-                    t1v.setTextColor(Color.WHITE)
+                    t1v.setTextColor(Color.BLACK)
                     t1v.gravity = Gravity.CENTER
                     tbrow.addView(t1v)
 
                     val t2v = TextView(context)
                     t2v.text = curse.getString(cindexname)
-                    t2v.setTextColor(Color.WHITE)
+                    t2v.setTextColor(Color.BLACK)
                     t2v.gravity = Gravity.CENTER
                     tbrow.addView(t2v)
 
                     val t3v = TextView(context)
                     t3v.text = "Time: [$timeHrs HRS $timeMins MINS $timeSecs SECS]"
-                    t3v.setTextColor(Color.WHITE)
+                    t3v.setTextColor(Color.BLACK)
                     t3v.gravity = Gravity.CENTER
                     tbrow.addView(t3v)
 
