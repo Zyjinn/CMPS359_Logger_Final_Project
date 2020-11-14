@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#070707"
     tools:context=".Sonic_Adventure_2">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_height="34dp"
         android:layout_marginTop="14dp"
         android:shadowColor="#FFFFFF"
-        android:text="LEADERBOARD"
+        android:text="@string/leaderboard"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#000000"
@@ -30,7 +31,8 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/adv2title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -39,6 +41,21 @@
         android:layout_marginStart="213dp"
         android:src="@drawable/sonic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+    <TableLayout
+        android:id="@+id/splitsTable"
+        android:layout_width="288dp"
+        android:layout_height="422dp"
+        android:layout_marginTop="224dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessLeaf" />
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
