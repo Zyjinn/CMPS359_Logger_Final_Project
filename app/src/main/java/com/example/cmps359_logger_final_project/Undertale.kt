@@ -42,10 +42,6 @@ class Undertale : Fragment() {
         return inflater.inflate(R.layout.fragment_undertale, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
 
