@@ -1,5 +1,7 @@
 package com.example.cmps359_logger_final_project
 
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -7,11 +9,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 
+var timesRepository : TimesRepository? = null
+var db : SQLiteDatabase? = null
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        timesRepository = TimesRepository(application)
+        try {
+            db = this.openOrCreateDatabase(
+                "/data/data/com.example.cmps359_logger_final_project/databases/times_database", Context.MODE_PRIVATE, null)
+        } catch(e: Exception) {
+            e.printStackTrace()
+        }
 
     }
 
